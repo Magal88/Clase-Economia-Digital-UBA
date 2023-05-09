@@ -1,0 +1,114 @@
+---
+title: "Clase Fundamentos de R/Economia Digital UBA"
+author: "Magali Eisik"
+date: "8/5/2023"
+output: html_document
+---
+A continuacion se encuentran algunos ejercicios de la clase del sabado 13 de mayo de la asignatura Economia Digital (Maestría en Gestión Estratégica de Marketing Digital y Negocios por Internet), perteneciente a la Facultad de Ciencias Economicas,UBA.
+
+1) Crear un vector numerico llamado edad que contenga los elementos: 15,2,8,3,9,22
+
+```{r}
+edad<- c(15,2,8,3,9,22)
+```
+
+2) Crear un vector logico llamado a_2 que contenga los elementos: TRUE, FALSE, FALSE, FALSE
+
+```{r}
+a_2 <- c(TRUE, FALSE, FALSE, FALSE)
+```
+
+3) Cual es la longitud y estructura del vector edad ? (creado en item 2). 
+
+```{r}
+length(edad)
+str(6)
+```
+
+4) Sume la cantidad de elementos del vector edad
+
+```{r}
+sum(edad)
+```
+
+5) Calcular la media, mediana y desvio estandar del vector edad
+
+```{r}
+mean(edad)
+median(edad)
+sd(edad)
+```
+Otra forma, es utilizando summary y me arroja otras medidas estadisticas:
+
+```{r}
+summary(edad)
+```
+
+6) Crear siguientes vectores
+mes<-c("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic")
+sucursal_a<-c(21,22,25,28,25,25,222,24,27,226,227,22)
+sucursal_b<-c(20,23,25,19,20,21,27,26,30,28,29,24)
+Los vectores sucursales_a y sucursal_b, corresponden a la asistencia de clientes para la compra de plazos fijos, a las sucursales A y B respectivamente, de un Banco Y
+
+```{r}
+mes<-c("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic")
+sucursal_a<-c(21,22,25,28,25,25,222,24,27,226,227,22)
+sucursal_b<-c(20,23,25,19,20,21,27,26,30,28,29,24)
+```
+
+7) Construir un data frame con los 3 vectores, llamado banco
+
+```{r}
+banco<- data.frame(mes,sucursal_a,sucursal_b)
+banco
+```
+
+8) Cuales son las dimensiones del data frame?
+
+```{r}
+dim(banco)
+```
+
+El data frame posee 12 filas (registros/observaciones) y 3 columnas (variables).
+
+9) Calcular la media  de la variable sucursal_a del data frame banco
+
+```{r}
+mean(banco$sucursal_a)
+```
+10) Cargar las librerias tidyverse y ggplot2
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+11) Cargar el data set iris y guardarlo como un data frame llamado datos
+
+```{r,echo=FALSE}
+iris
+datos <- data.frame(iris)
+```
+
+El data set iris contiene las mediciones en centímetros de las variables longitud
+(Length) y ancho (Width) de los pétalos (Petal) y sépalos (Sepal) de 50 flores de cada una de las 3 especies (Species) del género Iris: Iris setosa, Iris versicolor e Iris
+virginica. El data set presenta 150 filas y 5 variables
+
+12) Realizar un diagrama de dispersion (scatter plot), siendo x= longitud del sepalo e y=longitud del petalo
+
+```{r}
+ggplot(datos,aes(Sepal.Length,Petal.Length)) + geom_point(col="violet")+ ggtitle("Longitud del petalo en funcion de longitud del sepalo")+ 
+  xlab("Longitud del sepalo") + 
+  ylab("Longitud del petalo")
+```
+
+13) Realizar un barplot de la variable Species
+
+```{r}
+ggplot(datos,aes(Species)) + geom_bar(col="green",fill="blue")+ ggtitle("Grafico de barras de especies")+ 
+  xlab("Especies") + 
+  ylab("Frecuencia")
+```
+
+```
+
